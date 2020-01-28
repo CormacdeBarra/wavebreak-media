@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './app.css';
 import { getImages } from './api/pixelbay-api';
 import ImageList from './components/image-list';
+
+import * as styles from './app.style';
 
 function App() {
   const [data, setData] = useState();
@@ -10,19 +11,19 @@ function App() {
     async function fetchData() {
       const response = await getImages('building art');
       let images = [];
-      response.hits.map((hit) => {
+      response.hits.map((hit) => (
         images.push({
           url: hit.imageURL,
           alt: hit.tags,
-        });
-      })
+        })
+      ))
       setData(images);
     }
     fetchData();
   }, []);
 
   return (
-    <div className="app">
+    <div css={styles.container}>
       <ImageList images={data} />
     </div>
   );

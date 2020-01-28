@@ -6,7 +6,7 @@ const ImageList = ({ images }) => {
     return (
         <ul>
             {images.map((item, idx) => (
-            <li key={item.id} data-testid='image-list-item' key={idx} >
+            <li data-testid='image-list-item' key={idx} >
                 <Image url={item.url} alt={item.alt} />
             </li>
             ))}
@@ -22,7 +22,7 @@ ImageList.propTypes = {
     images: PropTypes.arrayOf(PropTypes.shape({
         url: PropTypes.string.isRequired,
         alt: PropTypes.string.isRequired,
-    }))
+    })),
 };
 
 export default ImageList;
