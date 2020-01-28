@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 const Image = ({ url, alt }) => {
     return (
-        <img data-testid='image-tag' src={url} alt={alt} />
+        <div className='image-item' data-testid='image-item'>
+            <img data-testid='image-tag' src={url} alt={alt} />
+        </div>
     );
 }
 

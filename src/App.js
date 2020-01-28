@@ -8,18 +8,19 @@ function App() {
   const [data, setData] = useState();
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchImages() {
       const response = await getImages('building art');
       let images = [];
       response.hits.map((hit) => (
         images.push({
-          url: hit.imageURL,
+          url: hit.webformatURL,
+          thumbnailUrl: hit.webformatURL,
           alt: hit.tags,
         })
       ))
       setData(images);
     }
-    fetchData();
+    fetchImages();
   }, []);
 
   return (

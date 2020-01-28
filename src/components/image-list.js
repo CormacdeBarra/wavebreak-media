@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from './image';
 
+import * as styles from './image-list.style';
+
+
 const ImageList = ({ images }) => {
     return (
-        <ul>
+        <div css={styles.imageGrid}>
             {images.map((item, idx) => (
-            <li data-testid='image-list-item' key={idx} >
-                <Image url={item.url} alt={item.alt} />
-            </li>
+                <Image url={item.thumbnailUrl} alt={item.alt} key={idx} />
             ))}
-        </ul>
+        </div>
     );
 }
 
@@ -20,7 +21,7 @@ ImageList.defaultProps = {
 
 ImageList.propTypes = {
     images: PropTypes.arrayOf(PropTypes.shape({
-        url: PropTypes.string.isRequired,
+        thumbnailUrl: PropTypes.string.isRequired,
         alt: PropTypes.string.isRequired,
     })),
 };
