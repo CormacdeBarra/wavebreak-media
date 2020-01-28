@@ -9,7 +9,7 @@ const ImageList = ({ images }) => {
     return (
         <div css={styles.imageGrid}>
             {images.map((item, idx) => (
-                <Image url={item.thumbnailUrl} alt={item.alt} key={idx} />
+                <Image url={item.webformatURL} alt={item.tags} key={idx} />
             ))}
         </div>
     );
@@ -21,8 +21,8 @@ ImageList.defaultProps = {
 
 ImageList.propTypes = {
     images: PropTypes.arrayOf(PropTypes.shape({
-        thumbnailUrl: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
+        webformatURL: PropTypes.string.isRequired,
+        tags: PropTypes.string.isRequired,
     })),
 };
 

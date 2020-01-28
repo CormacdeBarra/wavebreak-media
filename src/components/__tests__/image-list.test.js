@@ -6,12 +6,12 @@ describe('Image List', () => {
   test('renders an <li> for each image in the array', () => {
     const images = [
         {
-            thumbnailUrl: 'https://test.url1',
-            alt: 'alt1',
+            webformatURL: 'https://test.url1',
+            tags: 'alt1',
         },
         {
-            thumbnailUrl: 'https://test.url2',
-            alt: 'alt2',
+            webformatURL: 'https://test.url2',
+            tags: 'alt2',
         }
     ];
     const { getAllByTestId } = render(<ImageList images={images}/>);

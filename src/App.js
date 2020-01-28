@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { getImages } from './api/pixelbay-api';
 import ImageList from './components/image-list';
 
 import * as styles from './app.style';
 
 function App() {
-  const [data, setData] = useState();
+  const [images, setImages] = useState([]);
+  const [loaded, setIsLoaded] = useState(false);
+  const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    async function fetchImages() {
-      const response = await getImages('building art');
-      let images = [];
-      response.hits.map((hit) => (
-        images.push({
-          url: hit.webformatURL,
-          thumbnailUrl: hit.webformatURL,
-          alt: hit.tags,
-        })
-      ))
-      setData(images);
-    }
+  async function fetchImages(page = 1) {
+    const response = await getImages('building art', page);
+    setPage(page + 1);
+    setImages([...images, ...response.hits]);
+    setIsLoaded(true);
+  }
+
+  useEffect(() => {  
     fetchImages();
   }, []);
 
   return (
-    <div css={styles.container}>
-      <ImageList images={data} />
-    </div>
+    <InfiniteScroll
+      dataLength={images}
+      next={() => fetchImages(page)}
+      hasMore={true}
+      loader={<img src="./static/loading.gif" alt="loading" />}
+    >
+      <div css={styles.container}>
+        <ImageList images={images} />
+      </div>
+    </InfiniteScroll>
   );
 }
 
