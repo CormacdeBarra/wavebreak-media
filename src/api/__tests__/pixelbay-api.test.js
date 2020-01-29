@@ -11,9 +11,9 @@ describe('pixelbay-api', () => {
           json: () => mockJsonPromise,
         });
         const expectedPixelBayUrl =
-            'https://pixabay.com/api/?key=6473511-0417f2cad683f1bee54cafe15&q=test&image_type=photo'
+            'https://pixabay.com/api/?key=6473511-0417f2cad683f1bee54cafe15&q=test&image_type=photo&page=1'
         jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
-        await getImages('test');
+        await getImages('test', 1);
         expect(global.fetch).toHaveBeenCalledTimes(1);
         expect(global.fetch).toHaveBeenCalledWith(expectedPixelBayUrl);
     });
