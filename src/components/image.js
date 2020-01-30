@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import * as styles from './image.style';
+
 const Image = ({ url, alt }) => {
     return (
-        <div className='image-item' data-testid='image-item'>
+        <div css={styles.image} data-testid='image-item'>
             <img data-testid='image-tag' src={url} alt={alt} />
         </div>
     );

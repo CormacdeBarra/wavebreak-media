@@ -1,50 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { getImages } from './api/pixelbay-api';
-import ImageList from './components/image-list';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom'
+import ImageDetail from './components/image-detail';
 
-import * as styles from './app.style';
+import Results from './components/results';
 
-function App({ getPixelBayImages }) {
-  const [images, setImages] = useState([]);
-  const [loaded, setIsLoaded] = useState(false);
-  const [page, setPage] = useState(1);
-
-  async function fetchImages(page = 1) {
-    const response = await getPixelBayImages('building art', page);
-    setPage(page + 1);
-    setImages([...images, ...response.hits]);
-    setIsLoaded(true);
-  }
-
-  useEffect(() => {  
-    fetchImages();
-  }, []);
-
+function App() {
   return (
-    <div css={styles.container}>
-      <div css={styles.header}>Image Gallery</div>
-      <InfiniteScroll
-        dataLength={images}
-        next={() => fetchImages(page)}
-        hasMore={true}
-        loader={<img src="./static/loading.gif" alt="loading" />}
-      >
-        {loaded ?    
-          <ImageList images={images} />
-        : <></>}
-      </InfiniteScroll>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Results} sta />
+        <Route path="/image/:id" component={ImageDetail} />
+      </Switch>
+    </Router>
   );
 }
-
-App.defaultProps = {
-  getPixelBayImages: getImages,
-}
-
-App.propTypes = {
-  getPixelBayImages: PropTypes.func,
-};
 
 export default App;

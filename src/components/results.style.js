@@ -6,14 +6,15 @@ export const imageGrid = css`
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-rows: minmax(50px, auto);
 
-    .image-item:nth-child(5n){
-    grid-column-end: span 2;
+    .grid-item:nth-of-type(5n) {
+        width:100%;
+        height:100%;
     }
 
-    img{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 `;
