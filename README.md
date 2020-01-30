@@ -1,5 +1,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To run this project
+
+- Clone this repo. `git clone git@github.com:CormacdeBarra/wavebreak-media.git`
+- cd into directory where it was cloned to.
+- run `yarn install` or `npm install` to install dependencies
+- run `yarn start` or `npm run start` to start the app
+- run `yarn test` or `npm run test` to run tests
+
+## Libraries used in this project
+- `create-react-app` was used to bootstrap this app
+- `react-app-rewired` was used to reqire the app to use emotion (CSS in JS)
+- `react-infinite-scroll-component` - for infinite scrolling
+- `@emotion/core` for css-in-jss
+
+## Comments
+1. I chose to use CSS in JS for two reasons. SASS and other CSS pre-processors add extra complexity to building CSS. They require dependencies like ruby and others and can cause build errors on windows machines (I have found this in the past anyway)
+2. SASS uses BEM selectors which can be a bit of a nightmare where nested classes are concerned. emotion solves thisby adding a hash to classNames e.g (<div class="css-js6jah-header">Image Details</div>) . This allows us to have shorter and easier to manage class names
+
+There are some warnings when the tests are run. Didn't get time to fix them.
+
+## Create-React-App Readme
+
 ## Available Scripts
 
 In the project directory, you can run:
