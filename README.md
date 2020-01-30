@@ -16,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Comments
 1. I chose to use CSS in JS for two reasons. SASS and other CSS pre-processors add extra complexity to building CSS. They require dependencies like ruby and others and can cause build errors on windows machines (I have found this in the past anyway)
-2. SASS uses BEM selectors which can be a bit of a nightmare where nested classes are concerned. emotion solves thisby adding a hash to classNames e.g (<div class="css-js6jah-header">Image Details</div>) . This allows us to have shorter and easier to manage class names
+2. SASS uses BEM selectors which can be a bit of a nightmare where nested classes are concerned. emotion solves thisby adding a hash to classNames e.g ("class="css-js6jah-header">Image Details") . This allows us to have shorter and easier to manage class names
 
 There are some warnings when the tests are run. Didn't get time to fix them.
 
