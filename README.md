@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Libraries used in this project
 - `create-react-app` was used to bootstrap this app
-- `react-app-rewired` was used to reqire the app to use emotion (CSS in JS)
+- `react-app-rewired` was used to rewire the app to use emotion (CSS in JS)
 - `react-infinite-scroll-component` - for infinite scrolling
 - `@emotion/core` for css-in-jss
 
